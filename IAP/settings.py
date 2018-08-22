@@ -55,7 +55,7 @@ ROOT_URLCONF = 'IAP.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'IAP', #数据库名字，
-        'USER': 'root', #数据库登录用户名
+        'USER': 'iap', #数据库登录用户名
         'PASSWORD': '123456', #数据库登录密码,我自己修改了
         'HOST': 'localhost', #数据库所在主机（公司中写真实主机地址）
         'PORT': '3306', #数据库端口
@@ -128,3 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)

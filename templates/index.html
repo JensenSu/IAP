@@ -33,43 +33,62 @@
     </div>
     <!-- 注册窗口 -->
     <div id="register" class="modal fade" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button class="close" data-dismiss="modal">
-              <span>&times;</span>
-            </button>
+        <form method="post" action="/signup/">
+            {% csrf_token %}
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div class="modal-title">
+                <h1 class="text-center">注册</h1>
+              </div>
+              <div class="modal-body">
+                <form class="form-group" action="">
+                  <div class="form-group">
+                    <label for="">用户名</label>
+                    <input class="form-control" type="text" name="user_name" id="user_name" placeholder="6-15位字母或数字">
+                  </div>
+                  <div class="form-group">
+                    <label for="">密码</label>
+                    <input class="form-control" type="password" name="password" id="password" placeholder="至少6位字母或数字">
+                  </div>
+                  <div class="form-group">
+                    <label for="">再次输入密码</label>
+                    <input class="form-control" type="password" placeholder="至少6位字母或数字">
+                  </div>
+                  <div class="form-group">
+                    <label for="">手机号</label>
+                    <input class="form-control" type="tel" name="phone_number" id="phone_number" placeholder="">
+                  </div>
+                    <div class="form-group">
+                    <label for="">所在省</label>
+                    <input class="form-control" type="text" name="province" id="province" placeholder="">
+                  </div>
+                    <div class="form-group">
+                    <label for="">所在市</label>
+                    <input class="form-control" type="text" name="city" id="city" placeholder="">
+                  </div>
+                      <div class="form-group">
+                    <label for="">所处领域</label>
+                    <input class="form-control" type="text" name="field" id="field" placeholder="">
+                  </div>
+                      <div class="form-group">
+                    <label for="">所处行业</label>
+                    <input class="form-control" type="text" name="industry" id="industry" placeholder="">
+                  </div>
+                  <div class="text-right">
+                    <button class="btn btn-primary" type="submit">提交</button>
+                    <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                  </div>
+                  <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="modal-title">
-            <h1 class="text-center">注册</h1>
-          </div>
-          <div class="modal-body">
-            <form class="form-group" action="">
-              <div class="form-group">
-                <label for="">用户名</label>
-                <input class="form-control" type="text" placeholder="6-15位字母或数字">
-              </div>
-              <div class="form-group">
-                <label for="">密码</label>
-                <input class="form-control" type="password" placeholder="至少6位字母或数字">
-              </div>
-              <div class="form-group">
-                <label for="">再次输入密码</label>
-                <input class="form-control" type="password" placeholder="至少6位字母或数字">
-              </div>
-              <div class="form-group">
-                <label for="">邮箱</label>
-                <input class="form-control" type="email" placeholder="例如:123@123.com">
-              </div>
-              <div class="text-right">
-                <button class="btn btn-primary" type="submit">提交</button>
-                <button class="btn btn-danger" data-dismiss="modal">取消</button>
-              </div>
-              <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
-            </form>
-          </div>
-        </div>
-      </div>
+        </form>
     </div>
     <!-- 登录窗口 -->
     <div id="login" class="modal fade">
