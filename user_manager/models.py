@@ -39,6 +39,7 @@ class company_user(models.Model):
     field_id = models.CharField(max_length=16)
     industry_id = models.CharField(max_length=16)
 
+
 class goverment_user(models.Model):
     user_name = models.CharField(max_length=32)
     password = models.CharField(max_length=32)
