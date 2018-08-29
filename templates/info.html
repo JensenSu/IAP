@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% load static %}
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +11,16 @@
   <meta name="author" content="">
   <title>SB Admin - Start Bootstrap Template</title>
   <!-- Bootstrap core CSS-->
-  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %} " rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %} " rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="../static/css/sb-admin.css" rel="stylesheet">
-  <link href="../static/css/landing-page.min.css" rel="stylesheet">
+    <link href="{% static 'css/sb-admin.css' %} " rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %} " rel="stylesheet" type="text/css">
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <style type="text/css">
@@ -263,21 +267,58 @@
               </thead>
               <tbody>
               <tr>
-                <td>上市日期</td>
-                <td>2017年2月17日</td>
+                <td>主营业务产品及变化</td>
+                <td>0</td>
               </tr>
               <tr>
-                <td>股票代码</td>
-                <td>603603</td>
+                <td>公司名称</td>
+                <td></td>
               </tr>
               <tr>
-                <td>经营范围</td>
-                <td>水环境整体解决</td>
+                <td>主营业务</td>
+                <td></td>
               </tr>
               <tr>
-                <td>法人代表</td>
-                <td>赵笠钧</td>
+                <td>主营产品</td>
+                <td></td>
               </tr>
+              <tr>
+                <td>主要变化</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>行业分类</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>竞争地位</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>市场占有率</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>变化情况</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>行业监管</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>主管部门及监管体制</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>法律法规</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>市场格局</td>
+                <td>0</td>
+              </tr>
+
               </tbody>
             </table>
           </div>
@@ -317,19 +358,20 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="../static/vendor/jquery/jquery.min.js"></script>
-    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- Core plugin JavaScript-->
-    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="../static/vendor/chart.js/Chart.min.js"></script>
-    <script src="../static/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="../static/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'vendor/datatables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'vendor/datatables/dataTables.bootstrap4.js' %}"></script>
     <!-- Custom scripts for all pages-->
-    <script src="../static/js/sb-admin.min.js"></script>
+    <script src="{% static 'js/sb-admin.min.js' %}"></script>
     <!-- Custom scripts for this page-->
-    <script src="../static/js/sb-admin-datatables.min.js"></script>
-    <script src="../static/js/sb-admin-charts.min.js"></script>
+    <script src="{% static 'js/sb-admin-datatables.min.js' %}"></script>
+    <script src="{% static 'js/sb-admin-charts.min.js' %}"></script>
   </div>
 </body>
 

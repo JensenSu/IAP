@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import company_user
 from .models import goverment_user
 from .models import finance_user
+from .models import company
 from django.utils import timezone as datetime
 
 
@@ -128,6 +129,12 @@ def finance_register(req):
     response = HttpResponseRedirect('/index/')
     response.set_cookie('user_name', user_name.encode('utf-8').decode('latin-1'), 3600)
     return response
+
+
+def search(req):
+    contents = req.GET['search-content']
+    company_list = company.objects.filter(name__contains=contents).values("name")
+    return render(req,'result.html', {"result": company_list})
 
 
 def logout(req):

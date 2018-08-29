@@ -314,10 +314,10 @@
                     <h1 class="mb-5" style="margin-top: 5px">行业分析平台</h1>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form>
+                    <form class="form-group" method="get" action="/search/">
                         <div class="form-row">
                             <div class="col-12 col-md-10 mb-2 mb-md-0">
-                                <input type="email" class="form-control form-control-lg" placeholder="请输入您想搜索的企业"
+                                <input type="text" class="form-control form-control-lg" name="search-content" id="search-content" placeholder="请输入您想搜索的企业"
                                        style="margin-bottom: 20px">
                             </div>
                             <div class="col-12 col-md-2">
@@ -325,7 +325,7 @@
                             </div>
                             <div class="col-10 col-md-12">
                                 <label for="domain">
-                                    <input type="radio" name="group" id="domain" value="领域" checked/>
+                                    <input type="radio" name="group" id="domain" value="领域"/>
                                     <span style="font-size: 22px">领域 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </label>
                                 <label for="industry">
@@ -333,7 +333,7 @@
                                     <span style="font-size: 22px">行业</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </label>
                                 <label for="enterprise">
-                                    <input type="radio" name="group" id="enterprise" value="企业"/>
+                                    <input type="radio" name="group" id="enterprise" value="企业" checked/>
                                     <span style="font-size: 22px">企业</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </label>
                             </div>
