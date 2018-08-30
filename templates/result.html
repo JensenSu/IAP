@@ -1,18 +1,40 @@
 {% extends 'template.html' %}
 {% block main_template %}
     <h2>搜索结果</h2>
-    {% if result is null %}
+    <div class="row">
+        <div class="col-md-8">
+            {% if result is null %}
         <p>抱歉，没有包含当前关键字的公司</p>
     {% else %}
-        <table class="table table-bordered">
-            {% for item in result %}
-        <tr>
-            <td>
-                {{ item.name }}
-            </td>
-        </tr>
-            {% endfor %}
-        </table>
-
+{#        <table class="table table-bordered">#}
+{#            {% for item in result %}#}
+{#        <tr>#}
+{#            <td>#}
+{#                {{ item.name }}#}
+{#            </td>#}
+{#        </tr>#}
+{#            {% endfor %}#}
+{#        </table>#}
+        {% for item in result %}
+        <div class="list-group">
+            <a href="/company/?company_name={{ item.name }}" class="list-group-item active" style="background-color: #337ab7;border-color: #337ab7">
+                <h4 class="list-group-item-heading">
+                    {{ item.name }}
+                </h4>
+            </a>
+            <a href="/company/?company_name={{ item.name }}" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    {{ item.introduction }}
+                </h4>
+                <p class="list-group-item-text">
+                    {{ item.time_to_market }}
+                </p>
+            </a>
+            <br>
+        </div>
+        {% endfor %}
     {% endif %}
+        </div>
+    </div>
+
 {% endblock %}

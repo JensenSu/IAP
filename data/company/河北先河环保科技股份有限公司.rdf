@@ -6,7 +6,7 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
   xmlns:enterprise="http://ccip.ucas.ac.cn/ontology/company#"
   xml:base="http://ccip.ucas.ac.cn/resource#">
-  <enterprise:主营业务产品及变化 rdf:ID="河北先河环保科技股份有限公司的主营业务,产品及变化">
+  <enterprise:主营业务产品及变化 rdf:ID="河北先河环保科技股份有限公司的主营业务产品及变化">
     <enterprise:公司名称>河北先河环保科技股份有限公司</enterprise:公司名称>
     <enterprise:主营业务>高端环境在线监测仪器仪表研发、生产和销售</enterprise:主营业务>
     <enterprise:主营产品>高端环境监测仪器</enterprise:主营产品>

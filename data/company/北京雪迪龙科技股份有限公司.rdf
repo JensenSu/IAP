@@ -6,7 +6,7 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
   xmlns:enterprise="http://ccip.ucas.ac.cn/ontology/company#"
   xml:base="http://ccip.ucas.ac.cn/resource#">
-  <enterprise:主营业务产品及变化 rdf:ID="北京雪迪龙科技股份有限公司的主营业务,产品及变化">
+  <enterprise:主营业务产品及变化 rdf:ID="北京雪迪龙科技股份有限公司的主营业务产品及变化">
     <enterprise:公司名称>北京雪迪龙科技股份有限公司</enterprise:公司名称>
     <enterprise:主营业务>分析仪器仪表、 环境监测系统和工业过程分析系统的研发、生产、 销售以及运营维护服务</enterprise:主营业务>
     <enterprise:主营产品>分析仪器及配套产品、环境在线监测系统、工业过程在线分析系统及环保运维服务</enterprise:主营产品>

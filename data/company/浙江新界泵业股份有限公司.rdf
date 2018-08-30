@@ -6,7 +6,7 @@
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
   xmlns:enterprise="http://ccip.ucas.ac.cn/ontology/company#"
   xml:base="http://ccip.ucas.ac.cn/resource#">
-  <enterprise:主营业务产品及变化 rdf:ID="浙江新界泵业股份有限公司的主营业务,产品及变化">
+  <enterprise:主营业务产品及变化 rdf:ID="浙江新界泵业股份有限公司的主营业务产品及变化">
     <enterprise:公司名称>浙江新界泵业股份有限公司</enterprise:公司名称>
     <enterprise:主营业务>农用水泵和空气压缩机的研发、生产和销售</enterprise:主营业务>
     <enterprise:主营产品>小型潜水电泵，污水污物潜水电泵，井用潜水电泵，自吸泵，旋涡泵，其他农用泵，空气压缩机</enterprise:主营产品>

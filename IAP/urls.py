@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^government_register/$', uview.government_register),
     url(r'^finance_register/$', uview.finance_register),
     url(r'^search/$', uview.search),
+    url(r'^company/$', uview.show_company)
 
 ]
