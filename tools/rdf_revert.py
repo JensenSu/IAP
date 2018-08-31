@@ -14,6 +14,9 @@ def revert(a):
     list = []
     for row in qres:
         str = row[0][32:] + '-' + row[1][40:]
+        char = '的'
+        pos = str.find(char) + 1
+        str = str[pos:]
         if 'ns#type' not in str:
             dict[str] = row[2].replace('\n', '')
     for i in dict:
@@ -33,5 +36,6 @@ def revert(a):
             list[4], list[i] = list[i], list[4]
     for j in list:
         orderdict[j] = dict[j]
-    print(orderdict)
+        if orderdict[j] == '':
+            orderdict.pop(j)
     return orderdict

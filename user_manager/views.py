@@ -6,6 +6,7 @@ from .models import company_user
 from .models import goverment_user
 from .models import finance_user
 from .models import company
+from .models import industry
 from django.utils import timezone as datetime
 from tools.rdf_revert import revert
 
@@ -133,16 +134,31 @@ def finance_register(req):
 
 
 def search(req):
+    # contents = req.GET['search-content']
+    search_type = req.GET['group']
+    print(search_type)
+    if search_type == "企业":
+        return search_company(req)
+    elif search_type == "行业":
+        return search_industry(req)
+
+
+def search_company(req):
     contents = req.GET['search-content']
     company_list = company.objects.filter(name__contains=contents)
-    return render(req,'result.html', {"result": company_list})
+    return render(req, 'result.html', {"result": company_list})
+
+
+def search_industry(req):
+    contents = req.GET['search-content']
+    industry_list = industry.objects.filter(name__contains=contents)
+    return render(req, 'result.html', {"result": industry_list})
 
 
 def show_company(req):
     company_name = req.GET["company_name"]
-    info = revert(company_name)  #写到了这
-    print(info)
-    return render(req, "info.html", {"company_name": company_name, "company_info":info})
+    info = revert(company_name)
+    return render(req, "info.html", {"company_name": company_name, "company_info": info})
 
 
 def logout(req):

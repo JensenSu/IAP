@@ -29,23 +29,31 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
               <tr class="row mx-0">
-                <th class="col-3 text-center">类目</th>
-                <th class="col-7 text-center">简介</th>
-                  <th class="col-2 text-center">备注</th>
+                <th class="col-3 text-center" aria-sort="none">类目</th>
+                <th class="col-7 text-center" aria-sort="none">简介</th>
+                  <th class="col-2 text-center" aria-sort="none">备注</th>
               </tr>
               </thead>
               <tbody>
               {% for p,o in company_info.items %}
                 <tr class="row mx-0">
-                    <td class="col-3">{{ p }}</td>
-                    <td class="col-7">{{ o }}</td>
+                    <td class="col-3 text-center">{{ p }}</td>
+                    <td class="col-7 text-center">{{ o }}</td>
                     <td class="col-2"></td>
                 </tr>
               {% endfor %}
+
               </tbody>
             </table>
           </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
+    <script>
+    $(function () {
+        $('#dataTable').dataTable({
+            "bSortable": false, "aTargets": [0]
+        });
+    })
+    </script>
 {% endblock %}
