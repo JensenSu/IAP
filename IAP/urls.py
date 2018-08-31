@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from user_manager import views as uview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', uview.index),
+    url(r'^index/$', uview.index),
+    url(r'^login/$', uview.login),
+    url(r'^logout/$', uview.logout),
+    url(r'^company_register/$', uview.company_register),
+    url(r'^government_register/$', uview.government_register),
+    url(r'^finance_register/$', uview.finance_register),
+    url(r'^search/$', uview.search),
+    url(r'^company/$', uview.show_company)
+
 ]
