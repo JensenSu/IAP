@@ -1,0 +1,109 @@
+{
+  "name": "IKG",
+  "children": [
+    {
+      "name": "自来水厂",
+      "address": "",
+      "layer": 1,
+      "target": [
+        {
+          "name": "居民生活用"
+        },
+        {
+          "name": "工业用水"
+        }
+      ]
+    },
+    {
+      "name": "居民生活用",
+      "address": "",
+      "layer": 2,
+      "target": [
+        {
+          "name": "生活污水处理",
+          "relationship": "污水收集管道"
+        }
+      ]
+    },
+    {
+      "name": "工业用水",
+      "address": "",
+      "layer": 2,
+      "target": [
+        {
+          "name": "工业废水处理",
+          "relationship": "废水收集管道"
+        }
+      ]
+    },
+    {
+      "name": "零件供应商",
+      "address": "",
+      "layer": 2,
+      "target": [
+        {
+          "name": "设备厂"
+        }
+      ]
+    },
+    {
+      "name": "生活污水处理",
+      "address": "",
+      "layer": 3,
+      "target": [
+        {
+          "name": "居民生活用",
+          "relationship": "中水回用系统"
+        },
+        {
+          "name": "污水排放"
+        },
+        {
+          "name": "污泥处理"
+        }
+      ]
+    },
+    {
+      "name": "工业废水处理",
+      "address": "",
+      "layer": 3,
+      "target": [
+        {
+          "name": "工业用水",
+          "relationship": "中水回用系统"
+        },
+        {
+          "name": "污水排放"
+        },
+        {
+          "name": "污泥处理"
+        }
+      ]
+    },
+    {
+      "name": "设备厂",
+      "address": "",
+      "layer": 3,
+      "target": [
+        {
+          "name": "生活污水处理"
+        },
+        {
+          "name": "工业废水处理"
+        }
+      ]
+    },
+    {
+      "name": "污水排放",
+      "address": "",
+      "layer": 4
+    },
+    {
+      "name": "污泥处理",
+      "address": "",
+      "layer": 4
+    }
+  ]
+}
+
+
