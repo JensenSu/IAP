@@ -3,7 +3,7 @@ import collections
 
 def revert(a):
     g = rdflib.Graph()
-    g.parse("./data/company/"+a+".rdf", format="xml")
+    g.parse("../data/company/"+a+".rdf", format="xml")
     qres = g.query(
         """SELECT ?s ?p ?o 
            WHERE {

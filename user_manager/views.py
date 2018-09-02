@@ -7,9 +7,13 @@ from .models import goverment_user
 from .models import finance_user
 from .models import company
 from .models import industry
+from .models import field
+from .models import company_industry_relationship
 from django.utils import timezone as datetime
 from tools.rdf_revert import revert
 from django.http import JsonResponse
+from django.core import serializers
+
 
 # Create your views here.
 def index(req):
@@ -23,7 +27,6 @@ def index(req):
 def login(req):
     user_name = req.POST['user_name']
     password = req.POST['password']
-
     userPassJudge = company_user.objects.filter(user_name=user_name, password=password)
 
     if userPassJudge:
@@ -141,36 +144,63 @@ def search(req):
         return search_company(req)
     elif search_type == "行业":
         return search_industry(req)
+    elif search_type == "领域":
+        return search_field(req)
+
+
+def search_field(req):
+    contents = req.GET['search-content']
+    field_list = field.objects.filter(field_name__contains=contents)
+    print(field)
+    return render(req, 'field_result.html', {"result": field_list})
 
 
 def search_company(req):
     contents = req.GET['search-content']
     company_list = company.objects.filter(name__contains=contents)
+    print(company_list)
     return render(req, 'result.html', {"result": company_list})
+
+
+def search_company_by_industry(req):
+    contents = req.GET['industry_name']
+    company_list = company_industry_relationship.objects.filter(industry_name=contents)
+    list = []
+    for item in company_list:
+        company_name = item.company_name
+        print(company_name)
+        list.append(company.objects.get(name=company_name))
+
+    return render(req, 'result.html', {"result": list})
 
 
 def search_industry(req):
     contents = req.GET['search-content']
     industry_list = industry.objects.filter(name__contains=contents)
-    return render(req, 'result.html', {"result": industry_list})
+    return render(req, 'industry_result.html', {"result": industry_list})
 
 
 def show_company(req):
     company_name = req.GET["company_name"]
+    company_intro = company.objects.get(name=company_name)
     info = revert(company_name)
-    return render(req, "info.html", {"company_name": company_name, "company_info": info})
+    return render(req, "info.html", {"company_name": company_name, "company_info": info, "company_intro":company_intro})
 
 
 def logout(req):
     response = HttpResponseRedirect('/index/')
     response.delete_cookie('user_name')
-    return  response
+    return response
+
 
 def IKG(req):
-    return render(req, "IKG.html")
+    return render(req, "IKG2.html")
+
 
 def IKG_process(req):
-    r = req.GET.get("name")
-    # print("name="+r)
-    dict={'name':r,"123":321}
-    return JsonResponse(dict, safe=False)
+    industry_name = req.GET.get("name")
+    company_list = company_industry_relationship.objects.filter(industry_name=industry_name).values("company_name")
+    list = []
+    for i in company_list:
+        list.append(i)
+    return JsonResponse(list, safe=False)

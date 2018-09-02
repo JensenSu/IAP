@@ -18,8 +18,8 @@ class company(models.Model):
 
 
 class company_industry_relationship(models.Model):
-    company_id = models.ForeignKey(company, on_delete=models.CASCADE)
-    industry_id = models.ForeignKey(industry, on_delete=models.CASCADE)
+    company_name = models.CharField(max_length=32, null=True)
+    industry_name = models.CharField(max_length=32, null=True)
 
 
 class field(models.Model):

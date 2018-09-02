@@ -1,6 +1,9 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+{% extends 'template.html' %}
+{% block page_top %}
+    <h1>水处理领域——行业知识图谱</h1>
+{% endblock %}
+{% block main_template %}
+    <style>
 
     .link {
         fill: none;
@@ -17,7 +20,7 @@
     }
 
     .link.resolved {
-        stroke-dasharray: 0, 2 1;
+        stroke-dasharray: 0, 2, 1;
     }
 
     circle {
@@ -37,29 +40,10 @@
     }
 
 </style>
-<body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
 <script>
-    /*
-    var links = [
-      {source: "同花顺", target: "IFIND", type: "resolved", rela:"主营产品"},
-      {source: "同花顺", target: "手机金融信息服务", type: "resolved", rela:"主营产品"},
-      {source: "同花顺", target: "互联网金融信息服务", type: "resolved", rela:"主营产品"},
-      {source: "同花顺", target: "网上行情交易系统", type: "resolved", rela:"主营产品"},
-      {source: "同花顺", target: "金融资讯及数据服务", type: "resolved", rela:"主营产品"},
-      {source: "同花顺", target: "互联网金融", type: "resolved",rela:"主营产品"},
-      {source: "同花顺", target: "金融服务", type: "resolved",rela:"主营产品"},
-      {source: "手机金融信息服务", target: "金融信息服务", type: "resolved", rela:"上位产品"},
-      {source: "互联网金融信息服务", target: "金融信息服务", type: "resolved", rela:"上位产品"},
-      {source: "二三四五002195", target: "金融信息服务", type: "resolved", rela:"主营产品"},
-      {source: "大智慧601519", target: "金融信息服务", type: "resolved", rela:"主营产品"},
-      {source: "大智慧601519", target: "互联网金融信息服务", type: "resolved", rela:"主营产品"},
-      {source: "金融服务", target: "移动互联网", type: "resolved", rela:"上游"},
-      {source: "金融服务", target: "互联网金融服务", type: "resolved", rela:"下位产品"},
-      {source: "金融服务", target: "综合金融服务", type: "resolved", rela:"下位产品"}
-    ];
-    */
+
 
     var links = [
         {source: "自来水厂", target: "居民生活用", type: "resolved", rela: "用途"},
@@ -85,7 +69,7 @@
         link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
     });
 
-    var width = 1200,
+    var width = 1000,
         height = 800;
 
     var force = d3.layout.force()//layout将json格式转化为力学图可用的格式
@@ -96,14 +80,14 @@
         .charge(-1500)//顶点的电荷数。该参数决定是排斥还是吸引，数值越小越互相排斥
         .on("tick", tick)//指时间间隔，隔一段时间刷新一次画面
         .start();//开始转换
-    var div = d3.select("body").append("div")
+    var div = d3.select("#contents").append("div")
         .attr("style", "width:90%; margin:0 auto; overflow:auto; _display:inline-block;")
         .attr("class", "main");
     var div_svg = d3.select("div.main").append("div")
-        .attr("style", "width:1300px; float:left;")
+        .attr("style", "float:left;")
         .attr("class", "div_svg");
     var div_text = d3.select("div.main").append("div")
-        .attr("style", "margin-left:160px;")
+        .attr("style", "margin-left:160px; ")
         .attr("class", "div_text");
     var svg = d3.select("div.div_svg").append("svg")
         .attr("width", width)
@@ -232,20 +216,21 @@
             var name = node.name;
             $.get("/IKG_process/", {'name': name}, function (ret) {
                 console.log(ret)
+                $('.div_text').append("<h4 list-group-item-heading>公司列表:</h3><ul>")
                 for(var key in ret){
-                    $('.div_text').append("<li>"+key+"</li>")
+                    $('.div_text').append("<li><a href='/company/?company_name="+ret[key].company_name+"' target='_blank'>"+ret[key].company_name+"</li>")
                 }
-
+                $('.div_text').append("</ul>")
             })
         })
         .call(force.drag);//将当前选中的元素传到drag函数中，使顶点可以被拖动
     /*
-     circle.append("text")  
-    .attr("dy", ".35em")  
-    .attr("text-anchor", "middle")//在圆圈内添加文字  
-    .text(function(d) { 
+     circle.append("text")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")//在圆圈内添加文字
+    .text(function(d) {
         //console.log(d);
-        return d.name; 
+        return d.name;
     }); */
 
     //圆圈的提示文字
@@ -404,4 +389,5 @@
 
 
 </script>
+{% endblock %}
 

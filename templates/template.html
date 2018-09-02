@@ -19,6 +19,8 @@
     <!-- Custom fonts for this template-->
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -224,7 +226,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2" method="get" action="/search/">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2" method="get" action="/search_company/">
             <div class="input-group">
               <input class="form-control" type="text" placeholder="点此搜索..." name="search-content" id="search-content">
               <span class="input-group-append">
@@ -243,7 +245,9 @@
     </div>
   </nav>
   <div class="content-wrapper">
-      <div class="container-fluid">
+      <div class="container-fluid" id="contents">
+        {% block page_top %}
+        {% endblock %}
         {% block main_template %}
         {% endblock main_template %}
         <!-- /.container-fluid-->
@@ -273,7 +277,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="/logout/">Logout</a>
           </div>
         </div>
       </div>

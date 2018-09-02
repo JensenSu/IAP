@@ -17,18 +17,14 @@
 {#        </table>#}
         {% for item in result %}
         <div class="list-group">
-            <a href="/company/?company_name={{ item.name }}" class="list-group-item active" style="background-color: #337ab7;border-color: #337ab7">
+            <a href="/IKG/" class="list-group-item active" style="background-color: #337ab7;border-color: #337ab7">
                 <h4 class="list-group-item-heading">
-                    {{ item.name }}
+                    {{ item.field_name }}
                 </h4>
             </a>
-            <a href="/company/?company_name={{ item.name }}" class="list-group-item">
+            <a href="/IKG/" class="list-group-item">
                 <p class="list-group-item-heading text-dark">
-                    {{ item.introduction }}
-                </p>
-                <hr>
-                <p class="list-group-item-text text-dark">
-                    创立时间：{{ item.time_to_market }}
+                    {{ item.field_info }}
                 </p>
             </a>
             <br>

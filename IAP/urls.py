@@ -30,5 +30,7 @@ urlpatterns = [
     url(r'^search/$', uview.search),
     url(r'^company/$', uview.show_company),
     url(r'^IKG/$', uview.IKG),
-    url(r'^IKG_process/$', uview.IKG_process)
+    url(r'^IKG_process/$', uview.IKG_process),
+    url(r'^search_company/$', uview.search_company),
+    url(r'^search_company_by_industry/$', uview.search_company_by_industry)
 ]
