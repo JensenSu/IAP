@@ -9,7 +9,7 @@ from .models import company
 from .models import industry
 from django.utils import timezone as datetime
 from tools.rdf_revert import revert
-
+from django.http import JsonResponse
 
 # Create your views here.
 def index(req):
@@ -165,3 +165,12 @@ def logout(req):
     response = HttpResponseRedirect('/index/')
     response.delete_cookie('user_name')
     return  response
+
+def IKG(req):
+    return render(req, "IKG.html")
+
+def IKG_process(req):
+    r = req.GET.get("name")
+    # print("name="+r)
+    dict={'name':r,"123":321}
+    return JsonResponse(dict, safe=False)
