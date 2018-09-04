@@ -200,7 +200,10 @@ def IKG(req):
 def IKG_process(req):
     industry_name = req.GET.get("name")
     company_list = company_industry_relationship.objects.filter(industry_name=industry_name).values("company_name")
+    industry_info = industry.objects.filter(name=industry_name).values("introduction")
+    print(industry_info)
     list = []
     for i in company_list:
         list.append(i)
+    list.append(industry_info[0])
     return JsonResponse(list, safe=False)
